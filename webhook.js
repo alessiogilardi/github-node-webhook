@@ -2,6 +2,11 @@ var fs = require('fs');
 var https = require('https'); 
 var nrc = require('node-run-cmd');
 
+var commands = [
+  'git fetch',
+  'git pull'
+];
+
 var port = 8443;
 var options = { 
     key: fs.readFileSync('encryption/server-key.pem'), 
@@ -24,6 +29,7 @@ https.createServer(options, function (request, response) {
 
     		//console.log(d.clone_url);
     		//console.log(d);
+    		nrc.run(commands, { cwd: path });
 
     		response.statusCode = 200;
     		response.end();
