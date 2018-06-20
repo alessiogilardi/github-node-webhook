@@ -18,6 +18,7 @@ https.createServer(options, function (request, response) {
     	}).on('end', () => {
     		body = Buffer.concat(body).toString();
     		d = JSON.parse(body);
+    		console.log(d.clone_url);
     		response.statusCode = 200;
     		response.end();
     	});
