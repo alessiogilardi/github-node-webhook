@@ -1,5 +1,7 @@
 var fs = require('fs'); 
 var https = require('https'); 
+var nrc = require('node-run-cmd');
+
 var port = 8443;
 var options = { 
     key: fs.readFileSync('encryption/server-key.pem'), 
@@ -18,8 +20,11 @@ https.createServer(options, function (request, response) {
     	}).on('end', () => {
     		body = Buffer.concat(body).toString();
     		d = JSON.parse(body);
+    		path = '/home/pi/' + d.repository.name;
+
     		//console.log(d.clone_url);
-    		console.log(d);
+    		//console.log(d);
+
     		response.statusCode = 200;
     		response.end();
     	});
