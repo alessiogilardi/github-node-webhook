@@ -1,9 +1,9 @@
 var fs = require('fs'); 
 var https = require('https'); 
 var options = { 
-    key: fs.readFileSync('ecncryption/server-key.pem'), 
-    cert: fs.readFileSync('ecncryption/server-crt.pem'), 
-    ca: fs.readFileSync('ecncryption/ca-crt.pem'), 
+    key: fs.readFileSync('encryption/server-key.pem'), 
+    cert: fs.readFileSync('encryption/server-crt.pem'), 
+    ca: fs.readFileSync('encryption/ca-crt.pem'), 
 };
 
 https.createServer(options, function (req, res) { 
