@@ -1,21 +1,15 @@
-var https = require('https');
-var fs    = require('fs');
-//var sys   = require('sys')
-//var exec  = require('child_process').exec;
-
-var port  = 8443;
-
-var options = {
-  key: fs.readFileSync('encryption/private.key'),
-  cert: fs.readFileSync('encryption/mydomain.crt')
+var fs = require('fs'); 
+var https = require('https'); 
+var options = { 
+    key: fs.readFileSync('server-key.pem'), 
+    cert: fs.readFileSync('server-crt.pem'), 
+    ca: fs.readFileSync('ca-crt.pem'), 
 };
 
-https.createServer(options, function (req, res) {
-	res.writeHead(200);
-	res.end("hello world!");
-}).listen(port);
-
-console.log("Listening to port " + port);
-
-//function puts(error, stdout, stderr) { sys.puts(stdout) }
-//exec("ls -la", puts);
+https.createServer(options, function (req, res) { 
+    console.log(new Date()+' '+ 
+        req.connection.remoteAddress+' '+ 
+        req.method+' '+req.url); 
+    res.writeHead(200); 
+    res.end("hello world\n"); 
+}).listen(4433);
