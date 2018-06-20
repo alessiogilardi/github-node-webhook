@@ -6,8 +6,8 @@ var exec  = require('child_process').exec;
 var port  = 8433;
 
 var options = {
-  key: fs.readFileSync('encription/privateKey.key'),
-  cert: fs.readFileSync('encryption/certificate.crt')
+  key: fs.readFileSync('encription/private.key'),
+  cert: fs.readFileSync('encryption/mydomain.crt')
 };
 
 https.createServer(options, function (req, res) {
