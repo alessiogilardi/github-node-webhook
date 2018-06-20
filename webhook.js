@@ -1,5 +1,6 @@
 var fs = require('fs'); 
 var https = require('https'); 
+var port = 8443;
 var options = { 
     key: fs.readFileSync('encryption/server-key.pem'), 
     cert: fs.readFileSync('encryption/server-crt.pem'), 
@@ -21,6 +22,8 @@ https.createServer(options, function (request, response) {
     		response.end();
     	});
     } else {
-    	response.statusCode = 404;
-    	response.end();
-}}).listen(8433);
+    	response.statusCode = 200;
+    	response.end("Hello");
+}}).listen(port);
+
+console.log('listening on port: ' + port);
