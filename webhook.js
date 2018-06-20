@@ -6,7 +6,7 @@ var exec  = require('child_process').exec;
 var port  = 8433;
 
 var options = {
-  key: fs.readFileSync('encription/private.key'),
+  key: fs.readFileSync('encryption/private.key'),
   cert: fs.readFileSync('encryption/mydomain.crt')
 };
 
