@@ -6,8 +6,8 @@ var exec  = require('child_process').exec;
 var port  = 8433;
 
 var options = {
-  key: fs.readFileSync('privateKey.key'),
-  cert: fs.readFileSync('certificate.crt')
+  key: fs.readFileSync('encription/privateKey.key'),
+  cert: fs.readFileSync('encryption/certificate.crt')
 };
 
 https.createServer(options, function (req, res) {
@@ -18,5 +18,5 @@ https.createServer(options, function (req, res) {
 
 console.log("Listening to port " + port);
 
-function puts(error, stdout, stderr) { sys.puts(stdout) }
-exec("ls -la", puts);
+//function puts(error, stdout, stderr) { sys.puts(stdout) }
+//exec("ls -la", puts);
