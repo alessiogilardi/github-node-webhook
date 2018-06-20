@@ -1,9 +1,9 @@
 var https = require('https');
 var fs    = require('fs');
-var sys   = require('sys')
-var exec  = require('child_process').exec;
+//var sys   = require('sys')
+//var exec  = require('child_process').exec;
 
-var port  = 8433;
+var port  = 8443;
 
 var options = {
   key: fs.readFileSync('encryption/private.key'),
@@ -11,7 +11,6 @@ var options = {
 };
 
 https.createServer(options, function (req, res) {
-	console.log('Connection');
 	res.writeHead(200);
 	res.end("hello world!");
 }).listen(port);
