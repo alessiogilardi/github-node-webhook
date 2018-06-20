@@ -6,10 +6,21 @@ var options = {
     ca: fs.readFileSync('encryption/ca-crt.pem'), 
 };
 
-https.createServer(options, function (req, res) { 
+https.createServer(options, function (request, response) { 
     console.log(new Date()+' '+ 
-        req.connection.remoteAddress+' '+ 
-        req.method+' '+req.url); 
-    res.writeHead(200); 
-    res.end("hello world\n"); 
-}).listen(8433);
+        request.connection.remoteAddress+' '+ 
+        request.method+' '+request.url); 
+    if (request.method === 'POST') {
+    	let body = [];
+    	request.on('data', (chunk) => {
+    		body.push(chunk);
+    	}).on('end', () => {
+    		body = Buffer.concat(body).toString();
+    		d = JSON.parse(body);
+    		response.statusCode = 200;
+    		response.end();
+    	});
+    } else {
+    	response.statusCode = 404;
+    	response.end();
+}}).listen(8433);
