@@ -18,7 +18,8 @@ https.createServer(options, function (request, response) {
     	}).on('end', () => {
     		body = Buffer.concat(body).toString();
     		d = JSON.parse(body);
-    		console.log(d.clone_url);
+    		//console.log(d.clone_url);
+    		console.log("Pushing");
     		response.statusCode = 200;
     		response.end();
     	});
