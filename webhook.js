@@ -11,8 +11,9 @@ var options = {
 };
 
 https.createServer(options, function (req, res) {
-  res.writeHead(200);
-  res.end("hello world!");
+	console.log('Connection');
+	res.writeHead(200);
+	res.end("hello world!");
 }).listen(port);
 
 console.log("Listening to port " + port);
