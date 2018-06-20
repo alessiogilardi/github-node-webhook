@@ -62,4 +62,5 @@ typings/
 
 *.csr
 *.key
+*.crt
 
