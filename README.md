@@ -1,6 +1,10 @@
 # GitHub Webhook
 Simple _webhook_ for GitHub __written__ in __Node.js__.
 
+<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" alt="Node.js logo" width=10%/>
+
+[logo]: https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png "Node.js logo"
+
 ### Description
 The tool bind to a hardcoded port and wait for push notification from a __GitHub__ repository, then it switches to the local repository folder and execute:
 * _git fetch_
