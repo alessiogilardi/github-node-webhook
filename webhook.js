@@ -25,7 +25,7 @@ https.createServer(options, function (request, response) {
     	}).on('end', () => {
     		body = Buffer.concat(body).toString();
     		d = JSON.parse(body);
-        path = '$HOME' + d.repository.name;
+        path = '/home/pi' + d.repository.name;
 
     		//console.log(d.clone_url);
     		//console.log(d);
